@@ -7,3 +7,5 @@ fi
 
 # User specific aliases and functions
 . ~/.git-completion
+
+export LANG=ja_JP.UTF-8
