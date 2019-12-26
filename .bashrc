@@ -12,16 +12,16 @@ fi
 
 export LANG=ja_JP.UTF-8
 
-if [[ -x $(which go) ]]; then
+if [[ $(which go 1>/dev/null 2>/dev/null) ]]; then
   export GOPATH=${HOME}/go
   export PATH=${PATH}:${GOPATH}/bin
 fi
 
-if [[ -x $(which nodebrew) ]]; then
+if [[ $(which nodebrew 1>/dev/null 2>/dev/null) ]]; then
   export PATH=${PATH}:${HOME}/.nodebrew/current/bin
 fi
 
-if [[ -x $(which java) ]]; then
+if [[ $(which java 1>/dev/null 2>/dev/null) ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
