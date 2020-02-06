@@ -25,6 +25,8 @@ if [[ $(which java 1>/dev/null 2>/dev/null) ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
+[[ -x $(which nodenv) ]] && eval "$(nodenv init -)"
+
 alias l.='ls -d .*'
 alias ll='ls -l'
 alias vi='vim'
