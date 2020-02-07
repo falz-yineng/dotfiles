@@ -10,6 +10,9 @@ fi
 . ~/.git-prompt
 . ~/.maven-console-in-color
 
+# PS1
+. ~/.ps1
+
 export LANG=ja_JP.UTF-8
 
 if [[ $(which go 1>/dev/null 2>/dev/null) ]]; then
@@ -25,8 +28,18 @@ if [[ $(which java 1>/dev/null 2>/dev/null) ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-[[ -x $(which nodenv) ]] && eval "$(nodenv init -)"
+[[ $(which nodenv 1>/dev/null 2>/dev/null) ]] && eval "$(nodenv init -)"
 
 alias l.='ls -d .*'
 alias ll='ls -l'
 alias vi='vim'
+
+function add_line {
+  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
+    PS1_NEWLINE_LOGIN=true
+  else
+    printf '\n'
+  fi
+}
+PROMPT_COMMAND='add_line'
+
