@@ -5,4 +5,4 @@ do
   cp -ia ${F} ~
 done
 
-test -r ~/.bash_profile && . ~/.bash_profile || echo '~/.bash_profile not found.' >&2
+test -r ~/.bash_profile && echo 'You can enable these dotfiles with ". ~/.bash_profile" command.' || echo '~/.bash_profile not found.' >&2
