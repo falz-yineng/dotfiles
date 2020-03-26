@@ -28,8 +28,10 @@ if [[ $(which java 1>/dev/null 2>/dev/null) ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+if [[ $(which nodenv 1>/dev/null 2>/dev/null) ]]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi
 
 alias l.='ls -d .*'
 alias ll='ls -l'
