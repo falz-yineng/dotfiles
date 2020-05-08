@@ -25,7 +25,7 @@ if [[ $(which nodebrew 2>/dev/null) ]]; then
 fi
 
 if [[ $(which java 2>/dev/null) ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
+  [[ $(uname) == 'Darwin' ]] && export JAVA_HOME="$(/usr/libexec/java_home)" || export JAVA_HOME="$(dirname $(dirname $(readlink $(readlink $(which java)))))"
 fi
 
 [[ $(which nodenv 2>/dev/null) ]] && eval "$(nodenv init -)"
