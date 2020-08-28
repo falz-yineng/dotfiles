@@ -8,3 +8,11 @@ set noexpandtab
 set softtabstop=0
 
 set nu
+
+" enable syntax highlight
+let OSTYPE = system('uname')
+if OSTYPE == "Darwin\n"
+  :set term=xterm-256color
+  :syntax on
+endif
+
