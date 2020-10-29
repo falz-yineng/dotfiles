@@ -14,6 +14,9 @@ function promps {
     esac
 
     local BASE="\u@$(hostname)"
+	# source /usr/local/opt/kube-ps1/share/kube-ps1.sh
+    # PS1="$(kube_ps1)\n"$PS1
+    # PS1="$(kube_ps1)\n${TITLEBAR}${GREEN}\w\n${GREEN_BOLD}${BASE}${WHITE}:${BLUE_BOLD}\W${YELLOW}\$(__git_ps1)\[\e[0m\] \$ "
     PS1="${TITLEBAR}${GREEN}\w\n${GREEN_BOLD}${BASE}${WHITE}:${BLUE_BOLD}\W${YELLOW}\$(__git_ps1)\[\e[0m\] \$ "
 
     GIT_PS1_SHOWDIRTYSTATE=true
