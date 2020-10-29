@@ -9,6 +9,7 @@ fi
 . ~/.git-completion
 . ~/.git-prompt
 . ~/.maven-console-in-color
+. /usr/local/opt/kube-ps1/share/kube-ps1.sh
 
 # PS1
 . ~/.ps1
@@ -34,12 +35,21 @@ alias l.='ls -d .*'
 alias ll='ls -l'
 alias vi='vim'
 
-function add_line {
+function dispatcher() {
+  export EXIT_STATUS="$?"
+  local f
+  for f in ${!PROMPT_COMMAND_*}; do
+    eval "${!f}"
+  done
+  unset f
+}
+function PROMPT_COMMAND_addnewline {
   if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
     PS1_NEWLINE_LOGIN=true
   else
     printf '\n'
   fi
 }
-PROMPT_COMMAND='add_line'
+# PROMPT_COMMAND_kubeps1="kube_ps1"
+PROMPT_COMMAND="dispatcher"
 
